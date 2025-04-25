@@ -96,8 +96,8 @@ export default function Home() {
       contact: {
         title: "Contact Us",
         address: "Lindleya 16, 02-013 m 301 Warszawa",
-        phone: "+48666644883",
-        email: "info@eurotaxi.pl",
+        phone: "+48 66 664 4883",
+        email: "Kilanibmci@gmail.com",
         followUs: "Follow Us",
         copyright: "© 2023 Euro Taxi. All rights reserved.",
         quickLinks: "Quick Links",
