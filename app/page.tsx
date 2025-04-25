@@ -3,13 +3,13 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { CheckCircle2, Mail, MapPin, Phone } from "lucide-react"
 import LanguageToggle from "@/components/language-toggle"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { CarIcon } from "@/components/icons"
+import { ContactForm } from "@/components/contact-form"
+import { LoginForm } from "@/components/login-form"
 
 export default function Home() {
   const [language, setLanguage] = useState<"en" | "pl">("en")
@@ -53,12 +53,51 @@ export default function Home() {
       },
       fleet: {
         title: "Our Fleet",
-        economy: "Economy",
-        standard: "Standard",
-        premium: "Premium",
-        economyDesc: "Fuel-efficient vehicles perfect for city driving",
-        standardDesc: "Comfortable mid-size vehicles with excellent ratings",
-        premiumDesc: "Luxury vehicles for premium ride-sharing services",
+        viewDetails: "View Details",
+        cars: [
+          {
+            name: "Toyota Corolla",
+            category: "Economy",
+            price: "€35/day",
+            description: "Fuel-efficient sedan perfect for city driving",
+            image: "https://placeholder.svg?height=300&width=500&text=Toyota+Corolla",
+          },
+          {
+            name: "Volkswagen Passat",
+            category: "Standard",
+            price: "€45/day",
+            description: "Comfortable mid-size sedan with excellent ratings",
+            image: "https://placeholder.svg?height=300&width=500&text=Volkswagen+Passat",
+          },
+          {
+            name: "BMW 3 Series",
+            category: "Premium",
+            price: "€65/day",
+            description: "Luxury sedan for premium ride-sharing services",
+            image: "https://placeholder.svg?height=300&width=500&text=BMW+3+Series",
+          },
+          {
+            name: "Skoda Octavia",
+            category: "Economy",
+            price: "€38/day",
+            description: "Spacious and reliable sedan with great fuel economy",
+            image: "https://placeholder.svg?height=300&width=500&text=Skoda+Octavia",
+          },
+          {
+            name: "Ford Focus",
+            category: "Economy",
+            price: "€32/day",
+            description: "Compact and agile car ideal for urban environments",
+            image: "https://placeholder.svg?height=300&width=500&text=Ford+Focus",
+          },
+          {
+            name: "Mercedes-Benz E-Class",
+            category: "Premium",
+            price: "€75/day",
+            description: "Elegant luxury sedan for the highest tier services",
+            image: "https://placeholder.svg?height=300&width=500&text=Mercedes+E-Class",
+          },
+        ],
       },
       contact: {
         title: "Contact Us",
@@ -104,16 +143,55 @@ export default function Home() {
       },
       fleet: {
         title: "Nasza Flota",
-        economy: "Ekonomiczne",
-        standard: "Standardowe",
-        premium: "Premium",
-        economyDesc: "Oszczędne pojazdy idealne do jazdy po mieście",
-        standardDesc: "Wygodne średniej wielkości pojazdy z doskonałymi ocenami",
-        premiumDesc: "Luksusowe pojazdy do premium usług przewozu osób",
+        viewDetails: "Zobacz Szczegóły",
+        cars: [
+          {
+            name: "Toyota Corolla",
+            category: "Ekonomiczne",
+            price: "€35/dzień",
+            description: "Oszczędny sedan idealny do jazdy po mieście",
+            image: "https://placeholder.svg?height=300&width=500&text=Toyota+Corolla",
+          },
+          {
+            name: "Volkswagen Passat",
+            category: "Standardowe",
+            price: "€45/dzień",
+            description: "Wygodny sedan średniej wielkości z doskonałymi ocenami",
+            image: "https://placeholder.svg?height=300&width=500&text=Volkswagen+Passat",
+          },
+          {
+            name: "BMW 3 Series",
+            category: "Premium",
+            price: "€65/dzień",
+            description: "Luksusowy sedan do premium usług przewozu osób",
+            image: "https://placeholder.svg?height=300&width=500&text=BMW+3+Series",
+          },
+          {
+            name: "Skoda Octavia",
+            category: "Ekonomiczne",
+            price: "€38/dzień",
+            description: "Przestronny i niezawodny sedan z doskonałą ekonomią paliwa",
+            image: "https://placeholder.svg?height=300&width=500&text=Skoda+Octavia",
+          },
+          {
+            name: "Ford Focus",
+            category: "Ekonomiczne",
+            price: "€32/dzień",
+            description: "Kompaktowy i zwrotny samochód idealny do środowisk miejskich",
+            image: "https://placeholder.svg?height=300&width=500&text=Ford+Focus",
+          },
+          {
+            name: "Mercedes-Benz E-Class",
+            category: "Premium",
+            price: "€75/dzień",
+            description: "Elegancki luksusowy sedan do usług najwyższej klasy",
+            image: "https://placeholder.svg?height=300&width=500&text=Mercedes+E-Class",
+          },
+        ],
       },
       contact: {
         title: "Kontakt",
-        address: "ul. Marszałkowska 142, 00-061 Warszawa, Polska",
+        address: "ul. Marszałkowska 142, 00-061 Warsaw, Poland",
         phone: "+48 22 123 4567",
         email: "info@eurotaxi.pl",
       },
@@ -133,12 +211,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <LanguageToggle language={language} setLanguage={setLanguage} />
             <ThemeToggle />
-            <Button variant="outline" size="sm">
-              {t.hero.cta}
-            </Button>
-            <Button variant="outline" size="sm" asChild>
-              <Link href="/admin/login">Admin</Link>
-            </Button>
+            <LoginForm language={language} />
           </div>
         </div>
       </header>
@@ -152,12 +225,12 @@ export default function Home() {
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">{t.hero.subtitle}</p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg">{t.hero.cta}</Button>
+                  <ContactForm language={language} />
                 </div>
               </div>
               <div className="flex items-center justify-center">
                 <Image
-                  src="/placeholder.svg?height=550&width=550&text=Euro+Taxi"
+                  src="https://placeholder.svg?height=550&width=550&text=Euro+Taxi+Fleet"
                   width={550}
                   height={550}
                   alt="Hero Image"
@@ -217,68 +290,35 @@ export default function Home() {
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">{t.fleet.title}</h2>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3">
-              <Tabs defaultValue="economy" className="w-full">
-                <TabsList className="grid w-full grid-cols-3">
-                  <TabsTrigger value="economy">{t.fleet.economy}</TabsTrigger>
-                  <TabsTrigger value="standard">{t.fleet.standard}</TabsTrigger>
-                  <TabsTrigger value="premium">{t.fleet.premium}</TabsTrigger>
-                </TabsList>
-                <TabsContent value="economy">
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="flex flex-col gap-4">
-                        <Image
-                          src="/placeholder.svg?height=300&width=500&text=Economy+Car"
-                          width={500}
-                          height={300}
-                          alt="Economy Car"
-                          className="rounded-lg object-cover"
-                        />
-                        <h3 className="text-xl font-bold">{t.fleet.economy}</h3>
-                        <p className="text-muted-foreground">{t.fleet.economyDesc}</p>
-                        <Button>{t.hero.cta}</Button>
+            <div className="mx-auto grid max-w-6xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
+              {t.fleet.cars.map((car, index) => (
+                <Card key={index} className="overflow-hidden">
+                  <div className="aspect-video w-full overflow-hidden">
+                    <Image
+                      src={car.image || "/placeholder.svg"}
+                      width={500}
+                      height={300}
+                      alt={car.name}
+                      className="h-full w-full object-cover transition-transform hover:scale-105"
+                    />
+                  </div>
+                  <CardContent className="p-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="text-lg font-bold">{car.name}</h3>
+                        <p className="text-sm text-muted-foreground">{car.category}</p>
                       </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                <TabsContent value="standard">
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="flex flex-col gap-4">
-                        <Image
-                          src="/placeholder.svg?height=300&width=500&text=Standard+Car"
-                          width={500}
-                          height={300}
-                          alt="Standard Car"
-                          className="rounded-lg object-cover"
-                        />
-                        <h3 className="text-xl font-bold">{t.fleet.standard}</h3>
-                        <p className="text-muted-foreground">{t.fleet.standardDesc}</p>
-                        <Button>{t.hero.cta}</Button>
+                      <div className="text-right">
+                        <p className="text-lg font-bold text-primary">{car.price}</p>
                       </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-                <TabsContent value="premium">
-                  <Card>
-                    <CardContent className="p-6">
-                      <div className="flex flex-col gap-4">
-                        <Image
-                          src="/placeholder.svg?height=300&width=500&text=Premium+Car"
-                          width={500}
-                          height={300}
-                          alt="Premium Car"
-                          className="rounded-lg object-cover"
-                        />
-                        <h3 className="text-xl font-bold">{t.fleet.premium}</h3>
-                        <p className="text-muted-foreground">{t.fleet.premiumDesc}</p>
-                        <Button>{t.hero.cta}</Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              </Tabs>
+                    </div>
+                    <p className="mt-2 text-sm text-muted-foreground">{car.description}</p>
+                    <div className="mt-4">
+                      <ContactForm language={language} />
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
