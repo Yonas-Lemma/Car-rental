@@ -96,7 +96,7 @@ export default function Home() {
       contact: {
         title: "Contact Us",
         address: "Lindleya 16, 02-013 m 301 Warszawa",
-        phone: "+48 22 123 4567",
+        phone: "+48666644883",
         email: "info@eurotaxi.pl",
         followUs: "Follow Us",
         copyright: "© 2023 Euro Taxi. All rights reserved.",
@@ -187,7 +187,7 @@ export default function Home() {
       contact: {
         title: "Kontakt",
         address: "Lindleya 16, 02-013 m 301 Warszawa",
-        phone: "+48 22 123 4567",
+        phone: "+48666644883",
         email: "info@eurotaxi.pl",
         followUs: "Obserwuj nas",
         copyright: "© 2023 Euro Taxi. Wszelkie prawa zastrzeżone.",
