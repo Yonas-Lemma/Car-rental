@@ -161,7 +161,7 @@ export function ContactForm({ language }: ContactFormProps) {
                   <p className="text-sm text-muted-foreground mt-1">{t.callUsDesc}</p>
                   <div className="mt-4 flex items-center">
                     <Phone className="h-5 w-5 text-primary mr-2" />
-                    <span className="font-medium">+48 22 123 4567</span>
+                    <span className="font-medium">+48 66 664 4883</span>
                   </div>
                   <Button className="mt-4 w-full" asChild>
                     <a href="tel:+48221234567">{t.callButton}</a>
