@@ -164,7 +164,7 @@ export function ContactForm({ language }: ContactFormProps) {
                     <span className="font-medium">+48 66 664 4883</span>
                   </div>
                   <Button className="mt-4 w-full" asChild>
-                    <a href="tel:+48221234567">{t.callButton}</a>
+                    <a href="tel:+48666644883">{t.callButton}</a>
                   </Button>
                 </div>
                 <div className="rounded-lg border p-4">
