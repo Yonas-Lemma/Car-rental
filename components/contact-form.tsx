@@ -169,7 +169,7 @@ export function ContactForm({ language }: ContactFormProps) {
                 </div>
                 <div className="rounded-lg border p-4">
                   <h3 className="text-lg font-medium">{t.orVisit}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">ul. Marszałkowska 142, 00-061 Warsaw, Poland</p>
+                  <p className="text-sm text-muted-foreground mt-1">Lindleya 16, 02-013 m 301 Warszawa</p>
                 </div>
               </TabsContent>
             </Tabs>
