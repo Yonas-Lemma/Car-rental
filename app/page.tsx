@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
-import { CheckCircle2, Mail, MapPin, Phone } from "lucide-react"
+import { CheckCircle2, Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react"
 import LanguageToggle from "@/components/language-toggle"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { CarIcon } from "@/components/icons"
@@ -58,44 +58,38 @@ export default function Home() {
           {
             name: "Toyota Corolla",
             category: "Economy",
-            price: "€35/day",
+            price: "600 PLN/week",
             description: "Fuel-efficient sedan perfect for city driving",
-            image: "https://placeholder.svg?height=300&width=500&text=Toyota+Corolla",
           },
           {
             name: "Volkswagen Passat",
             category: "Standard",
-            price: "€45/day",
+            price: "750 PLN/week",
             description: "Comfortable mid-size sedan with excellent ratings",
-            image: "https://placeholder.svg?height=300&width=500&text=Volkswagen+Passat",
           },
           {
             name: "BMW 3 Series",
             category: "Premium",
-            price: "€65/day",
+            price: "950 PLN/week",
             description: "Luxury sedan for premium ride-sharing services",
-            image: "https://placeholder.svg?height=300&width=500&text=BMW+3+Series",
           },
           {
             name: "Skoda Octavia",
             category: "Economy",
-            price: "€38/day",
+            price: "650 PLN/week",
             description: "Spacious and reliable sedan with great fuel economy",
-            image: "https://placeholder.svg?height=300&width=500&text=Skoda+Octavia",
           },
           {
             name: "Ford Focus",
             category: "Economy",
-            price: "€32/day",
+            price: "600 PLN/week",
             description: "Compact and agile car ideal for urban environments",
-            image: "https://placeholder.svg?height=300&width=500&text=Ford+Focus",
           },
           {
             name: "Mercedes-Benz E-Class",
             category: "Premium",
-            price: "€75/day",
+            price: "1000 PLN/week",
             description: "Elegant luxury sedan for the highest tier services",
-            image: "https://placeholder.svg?height=300&width=500&text=Mercedes+E-Class",
           },
         ],
       },
@@ -104,6 +98,13 @@ export default function Home() {
         address: "ul. Marszałkowska 142, 00-061 Warsaw, Poland",
         phone: "+48 22 123 4567",
         email: "info@eurotaxi.pl",
+        followUs: "Follow Us",
+        copyright: "© 2023 Euro Taxi. All rights reserved.",
+        quickLinks: "Quick Links",
+        home: "Home",
+        fleet: "Our Fleet",
+        pricing: "Pricing",
+        faq: "FAQ",
       },
     },
     pl: {
@@ -148,52 +149,53 @@ export default function Home() {
           {
             name: "Toyota Corolla",
             category: "Ekonomiczne",
-            price: "€35/dzień",
+            price: "600 PLN/tydzień",
             description: "Oszczędny sedan idealny do jazdy po mieście",
-            image: "https://placeholder.svg?height=300&width=500&text=Toyota+Corolla",
           },
           {
             name: "Volkswagen Passat",
             category: "Standardowe",
-            price: "€45/dzień",
+            price: "750 PLN/tydzień",
             description: "Wygodny sedan średniej wielkości z doskonałymi ocenami",
-            image: "https://placeholder.svg?height=300&width=500&text=Volkswagen+Passat",
           },
           {
             name: "BMW 3 Series",
             category: "Premium",
-            price: "€65/dzień",
+            price: "950 PLN/tydzień",
             description: "Luksusowy sedan do premium usług przewozu osób",
-            image: "https://placeholder.svg?height=300&width=500&text=BMW+3+Series",
           },
           {
             name: "Skoda Octavia",
             category: "Ekonomiczne",
-            price: "€38/dzień",
+            price: "650 PLN/tydzień",
             description: "Przestronny i niezawodny sedan z doskonałą ekonomią paliwa",
-            image: "https://placeholder.svg?height=300&width=500&text=Skoda+Octavia",
           },
           {
             name: "Ford Focus",
             category: "Ekonomiczne",
-            price: "€32/dzień",
+            price: "600 PLN/tydzień",
             description: "Kompaktowy i zwrotny samochód idealny do środowisk miejskich",
-            image: "https://placeholder.svg?height=300&width=500&text=Ford+Focus",
           },
           {
             name: "Mercedes-Benz E-Class",
             category: "Premium",
-            price: "€75/dzień",
+            price: "1000 PLN/tydzień",
             description: "Elegancki luksusowy sedan do usług najwyższej klasy",
-            image: "https://placeholder.svg?height=300&width=500&text=Mercedes+E-Class",
           },
         ],
       },
       contact: {
         title: "Kontakt",
-        address: "ul. Marszałkowska 142, 00-061 Warsaw, Poland",
+        address: "ul. Marszałkowska 142, 00-061 Warszawa, Polska",
         phone: "+48 22 123 4567",
         email: "info@eurotaxi.pl",
+        followUs: "Obserwuj nas",
+        copyright: "© 2023 Euro Taxi. Wszelkie prawa zastrzeżone.",
+        quickLinks: "Szybkie linki",
+        home: "Strona główna",
+        fleet: "Nasza flota",
+        pricing: "Cennik",
+        faq: "FAQ",
       },
     },
   }
@@ -230,7 +232,7 @@ export default function Home() {
               </div>
               <div className="flex items-center justify-center">
                 <Image
-                  src="https://placeholder.svg?height=550&width=550&text=Euro+Taxi+Fleet"
+                  src="/placeholder.svg?height=550&width=550&text=Euro+Taxi+Fleet"
                   width={550}
                   height={550}
                   alt="Hero Image"
@@ -295,7 +297,7 @@ export default function Home() {
                 <Card key={index} className="overflow-hidden">
                   <div className="aspect-video w-full overflow-hidden">
                     <Image
-                      src={car.image || "/placeholder.svg"}
+                      src={`/placeholder.svg?height=300&width=500&text=${car.name.replace(/ /g, "+")}`}
                       width={500}
                       height={300}
                       alt={car.name}
@@ -323,22 +325,65 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">© 2023 Euro Taxi. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <div className="flex items-center gap-2">
-            <MapPin className="h-4 w-4" />
-            <span className="text-xs">{t.contact.address}</span>
+      <footer className="bg-muted/50 border-t py-12">
+        <div className="container px-4 md:px-6">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <div className="flex items-center">
+                <CarIcon className="h-6 w-6 text-primary" />
+                <span className="ml-2 text-xl font-bold">Euro Taxi</span>
+              </div>
+              <p className="mt-2 text-sm text-muted-foreground">{t.contact.copyright}</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium mb-3">{t.contact.title}</h3>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-start gap-2">
+                  <MapPin className="h-4 w-4 mt-0.5 text-primary" />
+                  <span>{t.contact.address}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-primary" />
+                  <span>{t.contact.phone}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-primary" />
+                  <span>{t.contact.email}</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium mb-3">{t.contact.quickLinks}</h3>
+              <nav className="flex flex-col space-y-2 text-sm">
+                <Link href="#" className="hover:underline">
+                  {t.contact.home}
+                </Link>
+                <Link href="#" className="hover:underline">
+                  {t.contact.fleet}
+                </Link>
+                <Link href="#" className="hover:underline">
+                  {t.contact.pricing}
+                </Link>
+                <Link href="#" className="hover:underline">
+                  {t.contact.faq}
+                </Link>
+              </nav>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium mb-3">{t.contact.followUs}</h3>
+              <div className="flex space-x-4">
+                <Link href="#" className="hover:text-primary">
+                  <Facebook className="h-5 w-5" />
+                  <span className="sr-only">Facebook</span>
+                </Link>
+                <Link href="#" className="hover:text-primary">
+                  <Instagram className="h-5 w-5" />
+                  <span className="sr-only">Instagram</span>
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <Phone className="h-4 w-4" />
-            <span className="text-xs">{t.contact.phone}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Mail className="h-4 w-4" />
-            <span className="text-xs">{t.contact.email}</span>
-          </div>
-        </nav>
+        </div>
       </footer>
     </div>
   )
