@@ -1,7 +1,7 @@
 // Store admin credentials
 const ADMIN_CREDENTIALS = {
   username: "eurotaxi",
-  password: "secure123",
+  password: "password",
 }
 
 // Authentication function
