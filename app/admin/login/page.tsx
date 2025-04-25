@@ -9,7 +9,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { CarIcon } from "@/components/icons"
-import { authenticateAdmin } from "@/utils/auth"
 
 export default function AdminLogin() {
   const [username, setUsername] = useState("")
@@ -19,8 +18,9 @@ export default function AdminLogin() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    // Use the authentication utility
-    if (authenticateAdmin(username, password)) {
+    // This is a simple mock authentication
+    // In a real app, you would use a proper auth system
+    if (username === "admin" && password === "password") {
       // Store auth state in localStorage or cookies
       localStorage.setItem("adminAuth", "true")
       router.push("/admin/dashboard")
@@ -37,9 +37,9 @@ export default function AdminLogin() {
             <CarIcon className="h-10 w-10 text-primary" />
             <span className="ml-2 text-2xl font-bold">Euro Taxi Admin</span>
           </div>
-          <CardTitle className="text-2xl text-center">Login</CardTitle>
+          <CardTitle className="text-2xl text-center">Admin Login</CardTitle>
           <CardDescription className="text-center">
-            Enter your credentials to access the admin dashboard
+            Enter your admin credentials to access the dashboard
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleLogin}>
@@ -49,11 +49,13 @@ export default function AdminLogin() {
               <Label htmlFor="username">Username</Label>
               <Input
                 id="username"
+                type="text" // Explicitly set to text, not email
                 placeholder="admin"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
+              <p className="text-xs text-muted-foreground">Use "admin" as the username</p>
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
@@ -65,6 +67,7 @@ export default function AdminLogin() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <p className="text-xs text-muted-foreground">Use "password" as the password</p>
             </div>
           </CardContent>
           <CardFooter>

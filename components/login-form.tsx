@@ -22,7 +22,7 @@ interface LoginFormProps {
 
 export function LoginForm({ language }: LoginFormProps) {
   const [formData, setFormData] = useState({
-    email: "",
+    username: "",
     password: "",
   })
 
@@ -30,7 +30,7 @@ export function LoginForm({ language }: LoginFormProps) {
     en: {
       title: "Driver Login",
       description: "Log in to manage your rentals and account.",
-      email: "Email Address",
+      username: "Username",
       password: "Password",
       submit: "Log In",
       button: "Login",
@@ -39,7 +39,7 @@ export function LoginForm({ language }: LoginFormProps) {
     pl: {
       title: "Logowanie Kierowcy",
       description: "Zaloguj się, aby zarządzać swoimi wynajmami i kontem.",
-      email: "Adres Email",
+      username: "Nazwa użytkownika",
       password: "Hasło",
       submit: "Zaloguj się",
       button: "Logowanie",
@@ -74,8 +74,15 @@ export function LoginForm({ language }: LoginFormProps) {
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 py-4">
           <div className="space-y-2">
-            <Label htmlFor="email">{t.email}</Label>
-            <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} required />
+            <Label htmlFor="username">{t.username}</Label>
+            <Input
+              id="username"
+              name="username"
+              type="text"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
           </div>
           <div className="space-y-2">
             <div className="flex items-center justify-between">
