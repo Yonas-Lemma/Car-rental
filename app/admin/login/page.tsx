@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { CarIcon } from "@/components/icons"
+import { authenticateAdmin } from "@/utils/auth"
 
 export default function AdminLogin() {
   const [username, setUsername] = useState("")
@@ -18,9 +19,8 @@ export default function AdminLogin() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    // This is a simple mock authentication
-    // In a real app, you would use a proper auth system
-    if (username === "admin" && password === "password") {
+    // Use the authentication utility
+    if (authenticateAdmin(username, password)) {
       // Store auth state in localStorage or cookies
       localStorage.setItem("adminAuth", "true")
       router.push("/admin/dashboard")
