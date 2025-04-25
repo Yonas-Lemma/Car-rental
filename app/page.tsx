@@ -186,7 +186,7 @@ export default function Home() {
       },
       contact: {
         title: "Kontakt",
-        address: "ul. Marszałkowska 142, 00-061 Warszawa, Polska",
+        address: "Lindleya 16, 02-013 m 301 Warszawa",
         phone: "+48 22 123 4567",
         email: "info@eurotaxi.pl",
         followUs: "Obserwuj nas",
