@@ -12,17 +12,11 @@ import { taxiCarsData } from "@/data/taxi-cars"
 export default function CarsPage() {
   const [searchQuery, setSearchQuery] = useState("")
   const [sortOption, setSortOption] = useState("featured")
-  const [filterCategory, setFilterCategory] = useState("all")
 
   // Filter and sort cars based on current selections
   const filteredCars = taxiCarsData
     .filter((car) => {
-      const matchesSearch =
-        car.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        car.category.toLowerCase().includes(searchQuery.toLowerCase())
-      const matchesCategory = filterCategory === "all" || car.category === filterCategory
-
-      return matchesSearch && matchesCategory
+      return car.name.toLowerCase().includes(searchQuery.toLowerCase())
     })
     .sort((a, b) => {
       if (sortOption === "price-asc") return a.baseRate - b.baseRate
@@ -31,9 +25,6 @@ export default function CarsPage() {
       // Default: featured
       return 0
     })
-
-  // Get unique categories for filter
-  const categories = Array.from(new Set(taxiCarsData.map((car) => car.category)))
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -82,23 +73,6 @@ export default function CarsPage() {
               <Filter className="h-4 w-4" />
               <span>Filters</span>
             </div>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="rounded-full border-white/10 bg-white/5 text-sm hover:bg-white/10">
-                  Category: {filterCategory === "all" ? "All" : filterCategory}
-                  <ChevronDown className="ml-2 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-zinc-900 text-white">
-                <DropdownMenuItem onClick={() => setFilterCategory("all")}>All Categories</DropdownMenuItem>
-                {categories.map((category) => (
-                  <DropdownMenuItem key={category} onClick={() => setFilterCategory(category)}>
-                    {category}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
           </div>
 
           <DropdownMenu>

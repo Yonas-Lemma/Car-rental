@@ -37,11 +37,6 @@ export function SiteHeader() {
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
             <ThemeToggle />
-            <Link href="/login">
-              <Button variant="outline" size="sm" className="hidden md:inline-flex">
-                Sign In
-              </Button>
-            </Link>
             <Link href="/contact">
               <Button size="sm" className="hidden md:inline-flex">
                 Contact Us
@@ -83,13 +78,6 @@ export function SiteHeader() {
                     onClick={() => setIsOpen(false)}
                   >
                     Contact
-                  </Link>
-                  <Link
-                    href="/login"
-                    className="text-foreground/60 hover:text-foreground"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    Sign In
                   </Link>
                 </nav>
               </SheetContent>
