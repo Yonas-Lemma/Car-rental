@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { useRouter } from "next/navigation"
 import { Loader2 } from "lucide-react"
+import { Logo } from "@/components/logo"
 
 export default function SplashScreen() {
   const router = useRouter()
@@ -30,9 +31,7 @@ export default function SplashScreen() {
         transition={{ duration: 0.8 }}
         className="flex flex-col items-center"
       >
-        <div className="mb-2 text-3xl font-bold text-white">
-          <span className="text-white">F</span>
-        </div>
+        <Logo size="lg" textClassName="text-white" className="mb-2" />
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: 120 }}

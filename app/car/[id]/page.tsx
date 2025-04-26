@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { useParams, useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, Calendar, Check, DollarSign, Share2, Users } from "lucide-react"
+import { ArrowLeft, Calendar, Check, Share2, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -120,11 +120,10 @@ export default function CarDetailPage() {
               <div className="flex flex-wrap items-end justify-between gap-4">
                 <div>
                   <div className="flex items-center gap-1">
-                    <DollarSign className="h-5 w-5 text-yellow-500" />
-                    <p className="text-3xl font-bold">{car.baseRate}</p>
-                    <p className="text-lg text-white/70">base fare</p>
+                    <p className="text-3xl font-bold">{car.weeklyRate} PLN</p>
+                    <p className="text-lg text-white/70">/ week</p>
                   </div>
-                  <p className="text-sm text-white/70">+${car.perKmRate}/km distance rate</p>
+                  <p className="text-sm text-white/70">Perfect for Uber, Bolt & FreeNow</p>
                 </div>
 
                 <div className="flex gap-3">

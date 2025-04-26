@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Logo } from "@/components/logo"
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,11 +15,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <div className="mr-4 flex">
-          <Link href="/home" className="mr-6 flex items-center space-x-2">
-            <span className="text-xl font-bold">
-              Euro<span className="text-brand">Taxi</span>
-            </span>
-          </Link>
+          <Logo className="mr-6" />
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <Link href="/cars" className="transition-colors hover:text-foreground/80 text-foreground/60">
               Our Fleet

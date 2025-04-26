@@ -12,9 +12,9 @@ export function FeaturedCarCard({ car }: FeaturedCarCardProps) {
   const { id, name, brand, image, price, year, rating, isNew } = car
 
   // Format price with commas
-  const formattedPrice = new Intl.NumberFormat("en-US", {
+  const formattedPrice = new Intl.NumberFormat("pl-PL", {
     style: "currency",
-    currency: "USD",
+    currency: "PLN",
     maximumFractionDigits: 0,
   }).format(price)
 

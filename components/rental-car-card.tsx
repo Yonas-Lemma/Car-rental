@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Calendar, Car, DollarSign, Fuel, Star } from "lucide-react"
+import { Calendar, Car, Fuel, Star } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import type { RentalCar } from "@/types/rental-car"
@@ -60,12 +60,11 @@ export function RentalCarCard({ car }: RentalCarCardProps) {
 
         <div className="mb-4">
           <div className="flex items-center gap-1 text-green-500">
-            <DollarSign className="h-4 w-4" />
-            <span className="text-lg font-bold">{dailyRate}</span>
+            <span className="text-lg font-bold">{dailyRate} PLN</span>
             <span className="text-sm text-white/70">/day</span>
           </div>
           <p className="text-xs text-white/70">
-            ${weeklyRate}/week (save ${dailyRate * 7 - weeklyRate})
+            {weeklyRate} PLN/week (save {dailyRate * 7 - weeklyRate} PLN)
           </p>
         </div>
 

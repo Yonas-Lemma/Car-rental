@@ -18,6 +18,7 @@ import { Badge } from "@/components/ui/badge"
 import { TaxiCarCard } from "@/components/taxi-car-card"
 import { TestimonialCard } from "@/components/testimonial-card"
 import { taxiCarsData } from "@/data/taxi-cars"
+import { Logo } from "@/components/logo"
 
 export default function HomePage() {
   // Get all 4 taxi car types
@@ -506,9 +507,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
             <div className="lg:col-span-2">
-              <Link href="/home" className="mb-4 block text-2xl font-bold">
-                Euro<span className="text-brand">Taxi</span>
-              </Link>
+              <Logo size="lg" className="mb-4" />
               <p className="mb-6 text-muted-foreground">
                 Your partner for rideshare success. Quality vehicles for Uber, Bolt, and FreeNow drivers at competitive
                 weekly rates.

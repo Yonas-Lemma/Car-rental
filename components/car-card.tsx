@@ -13,9 +13,9 @@ export function CarCard({ car }: CarCardProps) {
   const { id, name, brand, image, price, year, mileage, rating, location, isNew } = car
 
   // Format price with commas
-  const formattedPrice = new Intl.NumberFormat("en-US", {
+  const formattedPrice = new Intl.NumberFormat("pl-PL", {
     style: "currency",
-    currency: "USD",
+    currency: "PLN",
     maximumFractionDigits: 0,
   }).format(price)
 
@@ -67,7 +67,7 @@ export function CarCard({ car }: CarCardProps) {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-lg font-bold">{formattedPrice}</p>
-              <p className="text-xs text-white/70">Est. ${Math.round(price / 60)}/mo</p>
+              <p className="text-xs text-white/70">Est. {Math.round(price / 60)} PLN/mo</p>
             </div>
             <Button className="rounded-full bg-white text-black hover:bg-white/90">View</Button>
           </div>
